@@ -18,6 +18,11 @@ public class Hello {
 		post("/data-hora-atual", (req, res) -> {
 			return new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
 		});
+		
+		post("/dados-body", (req, res) -> {
+			System.out.println(req.body());
+			return "OK";
+		});
 	}
 	
 }
