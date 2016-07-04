@@ -15,7 +15,9 @@ public class Hello {
 		get("/hello", (req, res) -> "Hello World");
 		get("/hello/:nome", (req, res) -> "Hello " + req.params(":nome"));
 		
-		post("/data-hora-atual", (req, res) -> new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
+		post("/data-hora-atual", (req, res) -> {
+			return new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
+		});
 	}
 	
 }
