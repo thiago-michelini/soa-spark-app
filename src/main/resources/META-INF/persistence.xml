@@ -5,6 +5,9 @@
 
   <persistence-unit name="pg-PU" transaction-type="RESOURCE_LOCAL">
 	  <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+	  
+	  <class>org.soaspark.entity.Cliente</class>
+	  
 	  <properties>
 	    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/teste_vs" />
 	    <property name="javax.persistence.jdbc.user" value="postgres" />

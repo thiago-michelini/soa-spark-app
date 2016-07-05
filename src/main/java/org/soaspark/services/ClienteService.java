@@ -1,15 +1,12 @@
 package org.soaspark.services;
 
-import java.math.BigDecimal;
+import static org.soaspark.persistence.BDPersistencia.BANCO1;
 
-import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
-import static org.soaspark.persistence.BDPersistencia.*;
+import org.soaspark.entity.Cliente;
 
 public class ClienteService {
-	
-//	@Inject
-//	private BDPersistencia em;
 
 	public <T> void gravar(T entidade) {
 		BANCO1.getEntityManager();
@@ -18,9 +15,14 @@ public class ClienteService {
 	
 	@SuppressWarnings("unchecked")
 	public <T> T findById(Long id) {
-//		BANCO1.getEntityManager();
-		System.out.println("find... id->" + id);
-		return (T) new BigDecimal(id.intValue());
+		try {
+			EntityManager em = BANCO1.getEntityManager();
+			System.out.println("find... id->" + id);
+			return (T) em.find(Cliente.class, 1);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 }
