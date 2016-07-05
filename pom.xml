@@ -14,9 +14,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
 	<maven.compiler.target>1.8</maven.compiler.target>
+	<hibernate.version>4.3.6.Final</hibernate.version>
+	<hibernate-jpa.version>1.0.0.Final</hibernate-jpa.version>
   </properties>
 
   <dependencies>
+	<!-- 	Dependencias do Spark -->
 	<dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
@@ -29,10 +32,17 @@
       <version>2.5</version>
     </dependency>
     
+	<!--     Dependencias do CDI (com implementacao JBoss Weld) -->
     <dependency>
 		<groupId>org.jboss.weld.se</groupId>
-		<artifactId>weld-se</artifactId>
-		<version>3.0.0.Alpha1</version>
+		<artifactId>weld-se-shaded</artifactId>
+		<version>3.0.0.Alpha16</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.jboss</groupId>
+	    <artifactId>jandex</artifactId>
+	    <version>2.0.2.Final</version>
 	</dependency>
     
     <dependency>
@@ -41,6 +51,43 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
+	<!--     Dependencias do Hibernate -->
+    <dependency>
+	  <groupId>javax.persistence</groupId>
+	  <artifactId>persistence-api</artifactId>
+	  <version>1.0.2</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.hibernate.javax.persistence</groupId>
+		<artifactId>hibernate-jpa-2.1-api</artifactId>
+		<version>${hibernate-jpa.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-c3p0</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+	
+	<!-- 	Jdbc Postgre -->
+	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>9.4-1206-jdbc41</version>
+	</dependency>
   </dependencies>
   
   <build>

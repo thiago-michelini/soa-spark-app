@@ -17,6 +17,7 @@ public class Hello {
 	public static void main(String[] args) {
 		
 		inicializarWeldCDI();
+//		new Application().run();
 		
 		get("/hello", (req, res) -> "Hello World");
 		get("/hello/:nome", (req, res) -> "Hello " + req.params(":nome"));

@@ -12,7 +12,7 @@ public class Application {
 	private ClienteService service;
 	
 	public void run() {
-		service.gravar(new String());
+		new ClienteService().gravar(new String());
 	}
 	
 }
