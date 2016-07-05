@@ -5,6 +5,9 @@ import static spark.Spark.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.jboss.weld.environment.se.Weld;
+import org.jboss.weld.environment.se.WeldContainer;
+
 /**
  * Hello world!
  *
@@ -12,6 +15,9 @@ import java.util.Date;
 public class Hello {
 	
 	public static void main(String[] args) {
+		
+		inicializarWeldCDI();
+		
 		get("/hello", (req, res) -> "Hello World");
 		get("/hello/:nome", (req, res) -> "Hello " + req.params(":nome"));
 		
@@ -23,6 +29,15 @@ public class Hello {
 			System.out.println(req.body());
 			return "OK";
 		});
+		
+	}
+	
+	private static void inicializarWeldCDI() {
+		Weld weld = new Weld();
+		WeldContainer container = weld.initialize();
+		Application app = container.instance().select(Application.class).get();
+		app.run();
+		weld.shutdown();
 	}
 	
 }
