@@ -1,22 +1,25 @@
 package org.soaspark.services;
 
-import static org.soaspark.persistence.BDPersistencia.BANCO1;
-
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import org.soaspark.entity.Cliente;
+import org.soaspark.persistence.BancoDados1;
 
 public class ClienteService {
+	
+	@Inject
+	private BancoDados1 bd;
 
 	public <T> void gravar(T entidade) {
-		BANCO1.getEntityManager();
+//		BANCO1.getEntityManager();
 		System.out.println("gravando... " + entidade.getClass().getName());
 	}
 	
 	@SuppressWarnings("unchecked")
 	public <T> T findById(Long id) {
 		try {
-			EntityManager em = BANCO1.getEntityManager();
+			EntityManager em = bd.getEntityManager();
 			
 			em.getTransaction().begin();
 			em.createNativeQuery("CREATE TABLE CLIENTE(ID INTEGER NOT NULL PRIMARY KEY,NOME VARCHAR(100))").executeUpdate();

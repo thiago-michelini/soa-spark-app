@@ -1,9 +1,11 @@
 package org.soaspark.endpoints;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import org.soaspark.services.ClienteService;
 
+//@ApplicationScoped
 public class ClienteController {
 
 	@Inject
