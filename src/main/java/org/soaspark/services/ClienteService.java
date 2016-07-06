@@ -17,8 +17,8 @@ public class ClienteService {
 	public <T> T findById(Long id) {
 		try {
 			EntityManager em = BANCO1.getEntityManager();
-			System.out.println("find... id->" + id);
-			return (T) em.find(Cliente.class, 1);
+//			System.out.println("find... id->" + id);
+//			return (T) em.find(Cliente.class, 1);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

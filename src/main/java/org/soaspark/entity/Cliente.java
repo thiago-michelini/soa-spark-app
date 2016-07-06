@@ -3,8 +3,10 @@ package org.soaspark.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "PUBLIC.CLIENTE")
 public class Cliente {
 	
 	@Id
