@@ -14,7 +14,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
 	<maven.compiler.target>1.8</maven.compiler.target>
-	<hibernate.version>4.3.6.Final</hibernate.version>
+	<hibernate.version>4.3.11.Final</hibernate.version>
 	<hibernate-jpa.version>1.0.0.Final</hibernate-jpa.version>
   </properties>
 
@@ -53,11 +53,11 @@
     </dependency>
     
 	<!--     Dependencias do Hibernate -->
-    <dependency>
+    <!--dependency>
 	  <groupId>javax.persistence</groupId>
 	  <artifactId>persistence-api</artifactId>
 	  <version>1.0.2</version>
-	</dependency>
+	</dependency-->
 	
 	<dependency>
 		<groupId>org.hibernate</groupId>

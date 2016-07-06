@@ -17,8 +17,20 @@ public class ClienteService {
 	public <T> T findById(Long id) {
 		try {
 			EntityManager em = BANCO1.getEntityManager();
-//			System.out.println("find... id->" + id);
-//			return (T) em.find(Cliente.class, 1);
+			
+			em.getTransaction().begin();
+			em.createNativeQuery("CREATE TABLE CLIENTE(ID INTEGER NOT NULL PRIMARY KEY,NOME VARCHAR(100))").executeUpdate();
+			em.getTransaction().commit();
+			
+			Cliente c = new Cliente();
+			c.setId(1);
+			c.setNome("Thiago Michelini");
+			em.getTransaction().begin();
+			em.persist(c);
+			em.getTransaction().commit();
+			
+			System.out.println("find... id->" + id);
+			return (T) em.find(Cliente.class, 1);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
