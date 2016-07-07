@@ -1,19 +1,20 @@
 package org.soaspark.persistence;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public enum BDPersistence {
 //	BD_PG("pg-PU"),
 	BD_HSQL("hsql-PU");
 	
-	private EntityManager entityManager;
+	private EntityManagerFactory entityManagerFactory;
 	
 	private BDPersistence(String persistenceUnitName) {
-		entityManager = Persistence.createEntityManagerFactory(persistenceUnitName).createEntityManager();
+		entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnitName);
 	}
 	
 	public EntityManager getEntityManager() {
-		return entityManager;
+		return entityManagerFactory.createEntityManager();
 	}
 }

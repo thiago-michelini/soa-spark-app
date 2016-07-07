@@ -8,12 +8,9 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import org.soaspark.entity.Cliente;
-import org.soaspark.persistence.TesteBD;
+import static org.soaspark.persistence.BDPersistence.*;
 
 public class ClienteService {
-
-	@Inject
-	private TesteBD bd;
 	
 	public <T> void gravar(T entidade) {
 //		BANCO1.getEntityManager();
@@ -23,8 +20,8 @@ public class ClienteService {
 	@SuppressWarnings("unchecked")
 	public <T> T findById(Long id) {
 		try {
-//			EntityManager em = BD_HSQL.getEntityManager();
-			EntityManager em = bd.getEm();
+			EntityManager em = BD_HSQL.getEntityManager();
+//			EntityManager em = bd.getEm();
 			
 			Cliente c = new Cliente();
 //			c.setId(1);
@@ -34,8 +31,7 @@ public class ClienteService {
 			em.getTransaction().commit();
 			
 			List<Cliente> list = em.createQuery("FROM Cliente c", Cliente.class).getResultList();
-			
-			bd.closeEm(em);
+			em.close();
 			
 			list.forEach(item -> {
 				System.out.println("Id: "+item.getId()+" | Nome: "+item.getNome());
