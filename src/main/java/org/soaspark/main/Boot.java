@@ -53,6 +53,7 @@ public class Boot {
 		try {
 			Application app = CDIWeldUtil.criarBean(Application.class);
 			app.testarWeld();
+			app.carregarServicosRest();
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.exit(1);
