@@ -13,11 +13,22 @@ public class ClienteRestService extends ServicoRestSpark {
 	
 	@Override
 	public void definirServicosSpark() {
-		get("/cliente/buscar", (req, res) -> {
+		
+		get("/cliente/gravar", (req, res) -> {
 			service.gravar();
+			return "OK";
+		});
+		
+		get("/cliente/buscar", (req, res) -> {
 			service.listar();
 			return "OK";
 		});
+		
+		post("/cliente/editar", (req, res) -> {
+			service.editar(req.body());
+			return "OK";
+		});
+		
 	}
 	
 }

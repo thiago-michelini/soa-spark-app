@@ -36,5 +36,17 @@ public class ClienteService {
 			e.printStackTrace();
 		}
 	}
+
+	public Cliente editar(String nome) throws Exception {
+		ClienteRepository rpst = new ClienteRepository(BD_HSQL);
+		Cliente c = rpst.buscarPorId(1L);
+		c.setNome(nome);
+		try {			
+			return rpst.gravar(c);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 }
