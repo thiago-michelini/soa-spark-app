@@ -12,7 +12,8 @@ public class Boot {
 
 	private static void inicializarBD() {
 		try {
-			BDPersistence.values()[0].getEntityManager();
+			for (BDPersistence bd : BDPersistence.values())
+				bd.getEntityManager();
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.exit(1);

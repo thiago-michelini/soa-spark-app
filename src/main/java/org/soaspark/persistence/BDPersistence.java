@@ -9,12 +9,15 @@ public enum BDPersistence {
 	BD_HSQL("hsql-PU");
 	
 	private EntityManagerFactory entityManagerFactory;
+	private String persistenceUnitName;
 	
 	private BDPersistence(String persistenceUnitName) {
-		entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnitName);
+		this.persistenceUnitName = persistenceUnitName;
 	}
 	
 	public EntityManager getEntityManager() {
+		if (null == entityManagerFactory)
+			entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnitName);
 		return entityManagerFactory.createEntityManager();
 	}
 }
