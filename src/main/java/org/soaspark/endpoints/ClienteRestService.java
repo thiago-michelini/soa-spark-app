@@ -6,18 +6,16 @@ import org.soaspark.services.ClienteService;
 
 import static spark.Spark.*;
 
-public class ClienteRestService {
+public class ClienteRestService extends ServicoRestSpark {
 
 	@Inject
 	private ClienteService service;
-
-	public Object buscar() {
-		return service.findById(1L);
-	}
 	
-	public void definirSparkServices() {
+	@Override
+	public void definirServicosSpark() {
 		get("/cliente/buscar", (req, res) -> {
-			service.findById(1L);
+			service.gravar();
+			service.listar();
 			return "OK";
 		});
 	}

@@ -11,6 +11,8 @@ public class Boot {
 	
 	public static void main(String[] args) throws Exception {
 		
+//		Reflections r = new reflect
+		
 		inicializarWeldCDI();
 		inicializarBD();
 		
@@ -53,7 +55,7 @@ public class Boot {
 		try {
 			Application app = CDIWeldUtil.criarBean(Application.class);
 			app.testarWeld();
-			app.carregarServicosRest();
+			app.carregarServicosRest("org.soaspark");
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.exit(1);

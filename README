@@ -1,6 +1,6 @@
 ###################################################################################
 ####################### COMANDO PARA RODAR A APLICAÇÃO ############################
 ###################################################################################
-java -cp target/app-dependency/*:target/soa-spark-app-0.0.1-SNAPSHOT.jar org.soaspark.hello.Hello
+java -cp target/app-dependency/*:target/soa-spark-app-0.0.1-SNAPSHOT.jar org.soaspark.main.Boot
 
 java -cp hsqldb.jar org.hsqldb.util.DatabaseManagerSwing

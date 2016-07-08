@@ -11,20 +11,20 @@ import org.soaspark.repository.ClienteRepository;
 
 public class ClienteService {
 	
-	public <T> void gravar(T entidade) {
-//		BANCO1.getEntityManager();
-		System.out.println("gravando... " + entidade.getClass().getName());
+	public Cliente gravar() {
+		Cliente c = new Cliente();
+		c.setNome("Thiago Michelini");
+		try {			
+			ClienteRepository rpst = new ClienteRepository(BD_HSQL);
+			return rpst.gravar(c);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
-	public <T> T findById(Long id) {
+	public void listar() {
 		try {
-			Cliente c = new Cliente();
-//			c.setId(1);
-			c.setNome("Thiago Michelini");
-			
-			ClienteRepository rpst = new ClienteRepository(BD_HSQL);
-			rpst.gravar(c);
-			
 			EntityManager em = BD_HSQL.getEntityManager();
 			List<Cliente> list = em.createQuery("FROM Cliente c", Cliente.class).getResultList();
 			em.close();
@@ -35,7 +35,6 @@ public class ClienteService {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		return null;
 	}
 	
 }
