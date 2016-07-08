@@ -6,8 +6,8 @@ import org.soaspark.utils.CDIWeldUtil;
 public class Boot {
 	
 	public static void main(String[] args) throws Exception {
-		carregarAplicacao();
 		inicializarBD();
+		carregarAplicacao();
 	}
 
 	private static void inicializarBD() {
