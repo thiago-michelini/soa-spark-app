@@ -5,6 +5,8 @@ import org.soaspark.utils.CDIWeldUtil;
 
 public class Boot {
 	
+	public static final String PACOTE_ROOT = "org";
+	
 	public static void main(String[] args) throws Exception {
 		inicializarBD();
 		carregarAplicacao();
@@ -24,7 +26,7 @@ public class Boot {
 		try {
 			Application app = CDIWeldUtil.criarBean(Application.class);
 			app.testarWeld();
-			app.carregarServicosRest("org.soaspark");
+			app.carregarServicosRest();
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.exit(1);

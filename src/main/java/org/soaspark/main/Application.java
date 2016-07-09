@@ -15,12 +15,13 @@ public class Application {
 		System.out.println("INFO: CDI com implementacao JBoss Weld carregado.");
 	}
 	
-	public void carregarServicosRest(String rootPackage) throws Exception {
-		Reflections reflections = new Reflections(rootPackage);
+	public void carregarServicosRest() throws Exception {
+		Reflections reflections = new Reflections(Boot.PACOTE_ROOT);
 		System.out.println("INFO: Carregando classes de resource REST...");
 		Set<Class<? extends ServicoRestSpark>> classes = reflections.getSubTypesOf(ServicoRestSpark.class);
 		if (null == classes || classes.isEmpty())
-			System.out.println("WARN: nao foi localizada nenhuma classe de resource REST no projeto");
+			System.out.println("WARN: nao foi localizada nenhuma classe de resource REST no projeto, "
+				+ "verifique se a constante PACOTE_ROOT foi definida corretamente");
 		else
 			classes.forEach((item) -> {
 				try {
