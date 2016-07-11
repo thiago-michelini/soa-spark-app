@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.soaspark.persistence.EntidadeBase;
 
@@ -20,6 +21,7 @@ public class Produto extends EntidadeBase {
 	private Long id;
 	
 	@Column
+	@XmlTransient
 	private String nome;
 	
 	@Column(name = "ESTOQUE_MINIMO")

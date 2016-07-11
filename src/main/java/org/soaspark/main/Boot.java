@@ -1,12 +1,14 @@
 package org.soaspark.main;
 
 import java.io.StringReader;
+import java.io.StringWriter;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 
+import org.eclipse.persistence.jaxb.JAXBContextFactory;
 import org.eclipse.persistence.jaxb.MarshallerProperties;
 import org.soaspark.entity.Produto;
 import org.soaspark.persistence.BDPersistence;
@@ -25,12 +27,14 @@ public class Boot {
 //		p.setEstoqueMinimo(10);
 //		p.setValor(20.12);
 //		
-//		JAXBContext ctx = JAXBContext.newInstance(Produto.class);
+//		JAXBContext ctx = JAXBContextFactory.createContext(new Class[]{Produto.class}, null);
 //		Marshaller marshaller = ctx.createMarshaller();
 //		marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
 //		marshaller.setProperty(MarshallerProperties.JSON_INCLUDE_ROOT, true);
 ////		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-//		marshaller.marshal(p, System.out);
+//		StringWriter sw = new StringWriter();
+//		marshaller.marshal(p, sw);
+//		System.out.println(sw.toString());
 //		
 //		Unmarshaller unmarshaller = ctx.createUnmarshaller();
 //		unmarshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
