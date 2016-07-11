@@ -16,8 +16,6 @@ import org.soaspark.utils.CDIWeldUtil;
 
 public class Boot {
 	
-	public static final String PACOTE_ROOT = "org.soaspark";
-	
 	public static void main(String[] args) throws Exception {
 		inicializarBD();
 		carregarAplicacao();

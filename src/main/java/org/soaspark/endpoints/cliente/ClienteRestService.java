@@ -1,4 +1,4 @@
-package org.soaspark.endpoints;
+package org.soaspark.endpoints.cliente;
 
 import javax.inject.Inject;
 

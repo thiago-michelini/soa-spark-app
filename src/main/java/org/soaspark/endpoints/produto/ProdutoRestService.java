@@ -1,9 +1,10 @@
-package org.soaspark.endpoints;
+package org.soaspark.endpoints.produto;
 
 import static spark.Spark.*;
 
 import javax.inject.Inject;
 
+import org.soaspark.endpoints.cliente.ServicoRestSpark;
 import org.soaspark.services.ProdutoService;
 
 public class ProdutoRestService extends ServicoRestSpark {
