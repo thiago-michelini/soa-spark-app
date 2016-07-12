@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import javax.inject.Singleton;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.reflections.Reflections;
 import org.soaspark.endpoints.cliente.ServicoRestSpark;
 import org.soaspark.utils.CDIWeldUtil;
 
-@Singleton
 public class Application {
 	
 	private static List<String> pacotesServicosRest = new ArrayList<String>();
