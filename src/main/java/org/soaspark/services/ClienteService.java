@@ -4,12 +4,17 @@ import static org.soaspark.persistence.BDPersistence.*;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import org.soaspark.entity.Cliente;
 import org.soaspark.repository.ClienteRepository;
+import org.soaspark.utils.JAXBUtil;
 
 public class ClienteService {
+	
+	@Inject
+	private JAXBUtil jaxbUtil;
 	
 	public Cliente gravar() {
 		Cliente c = new Cliente();
@@ -32,6 +37,8 @@ public class ClienteService {
 			list.forEach(item -> {
 				System.out.println("Id: "+item.getId()+" | Nome: "+item.getNome());
 			});
+			
+			System.out.println(jaxbUtil.marshaller(list));
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

@@ -6,11 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.soaspark.persistence.EntidadeBase;
 
 @Entity
 @Table(name = "PUBLIC.CLIENTE")
+@XmlRootElement
 public class Cliente extends EntidadeBase {
 	
 	@Id

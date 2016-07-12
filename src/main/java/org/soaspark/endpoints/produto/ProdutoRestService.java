@@ -1,6 +1,7 @@
 package org.soaspark.endpoints.produto;
 
-import static spark.Spark.*;
+import static spark.Spark.get;
+import static spark.Spark.post;
 
 import javax.inject.Inject;
 

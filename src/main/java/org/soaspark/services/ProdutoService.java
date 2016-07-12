@@ -4,12 +4,17 @@ import static org.soaspark.persistence.BDPersistence.BD_HSQL;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import org.soaspark.entity.Produto;
 import org.soaspark.repository.ProdutoRepository;
+import org.soaspark.utils.JAXBUtil;
 
 public class ProdutoService {
+	
+	@Inject
+	private JAXBUtil jaxbUtil;
 
 	public Produto gravar() {
 		Produto p = new Produto();
@@ -34,6 +39,8 @@ public class ProdutoService {
 			list.forEach(item -> {
 				System.out.println("Id: "+item.getId()+" | Nome: "+item.getNome()+" | EstMin.: "+item.getEstoqueMinimo()+" | Valor: "+item.getValor());
 			});
+			
+			System.out.println(jaxbUtil.marshaller(list));
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
